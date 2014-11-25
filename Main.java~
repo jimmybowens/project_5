@@ -1,0 +1,17 @@
+package project5;
+
+public class Main {
+
+ public static void main(String[] args) {
+  Tree binary = new Tree();
+  binary.add(4);
+  binary.add(60);
+  binary.add(10);
+  binary.add(60);
+  binary.add(0);
+  
+  
+  binary.inOrder(binary.head);
+ }
+
+}
