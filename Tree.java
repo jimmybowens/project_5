@@ -57,11 +57,24 @@ public class Tree {
    }
  }
  
- public void swap(Node currentNode, Tree T2){
-  if(currentNode != null){
-   T2.add(currentNode.index);
-   inOrder(currentNode.left);
-   inOrder(currentNode.right);
+ public void swap(Tree T1, Tree T2){
+   System.out.println(T1.head.index);
+ }
+ 
+ public Node get(int index){
+  Node currentNode = this.head;
+  while(currentNode.index != index){
+    if(index < currentNode.index){
+      currentNode = currentNode.left;
+    }
+    else{
+      currentNode = currentNode.right;
+    }
+    if(currentNode == null){
+      return null;
+    }
+    
   }
+  return currentNode;
  }
 }

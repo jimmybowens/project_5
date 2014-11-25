@@ -36,9 +36,9 @@ public class Main {
   
   public void swapTrees(){
     System.out.println("================================Swap Trees========================================");
-    Tree T2 = new Tree();
-    this.T1.swap(this.T1.head, T2);
-    T2.inOrder(T2.head);
+   // Tree T2 = new Tree();
+   // this.T1.swap(this.T1.head, T2);
+    // T2.inOrder(T2.head);
   }
   
   public void runTasks(){
