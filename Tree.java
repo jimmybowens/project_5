@@ -45,7 +45,6 @@ public class Tree {
   if(currentNode != null){
    inOrder(currentNode.left);
    System.out.println(currentNode.index);
-   //countLeaves(currentNode);
    inOrder(currentNode.right);
   }
  }
@@ -56,5 +55,13 @@ public class Tree {
      preOrder(currentNode.left);
      preOrder(currentNode.right);
    }
+ }
+ 
+ public void swap(Node currentNode, Tree T2){
+  if(currentNode != null){
+   T2.add(currentNode.index);
+   inOrder(currentNode.left);
+   inOrder(currentNode.right);
+  }
  }
 }
