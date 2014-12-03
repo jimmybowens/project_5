@@ -1,4 +1,8 @@
-package Data_Structures_Project5;
+/*Jimmy Bowens
+ * Advanced Data Structures
+ * November 25, 2014
+ */
+package project_5;
 
 public class Node {
  int index;
@@ -7,5 +11,4 @@ public class Node {
  Node(int index){
   this.index = index;
  }
- 
 }

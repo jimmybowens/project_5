@@ -1,4 +1,4 @@
-package project5;
+package Data_Structures_Project5;
 
 public class Node {
  int index;

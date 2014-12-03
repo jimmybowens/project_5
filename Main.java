@@ -1,31 +1,60 @@
-package Data_Structures_Project5;
+/*Jimmy Bowens
+ * Advanced Data Structures
+ * November 25, 2014
+ */
+
+package project_5;
 import java.util.*;
 public class Main {
-  Scanner getInput;
+  Scanner getFirstInput;
+  Scanner getSecondInput;
   Tree T1 = new Tree();
+  Tree T2 = new Tree();
+  Tree T3 = new Tree();
   public Main(){
     System.out.println("Enter an integer at to add to the list or DONE to stop entering integers");
-    getInput();
+    getFirstInput();
   }
  
-  public void getInput(){
-    getInput = new Scanner(System.in);
+  public void getFirstInput(){
+    getFirstInput = new Scanner(System.in);
     try{
-      String token = getInput.next();
+      String token = getFirstInput.next();
       if(token.matches("\\d+")){
         this.T1.add(Integer.valueOf(token));
-        getInput();
+        getFirstInput();
       }
       else if(token.equalsIgnoreCase("done")){
         System.out.println("All numbers have been collected and stored. Thank you!");
-        runTasks();
+        runFirstTasks();
       }
       else{
         System.out.println("Only enter a single integer at a time or enter 'done' to stop entering integers");
-        getInput();
+        getFirstInput();
       }
     }catch (Exception e){
-      getInput();
+      getFirstInput();
+    } 
+  }
+  
+  public void getSecondInput(){
+    getSecondInput = new Scanner(System.in);
+    try{
+      String token = getSecondInput.next();
+      if(token.matches("\\d+")){
+        this.T3.add(Integer.valueOf(token));
+        getSecondInput();
+      }
+      else if(token.equalsIgnoreCase("done")){
+        System.out.println("All numbers have been collected and stored. Thank you!");
+        runSecondTasks();
+      }
+      else{
+        System.out.println("Only enter a single integer at a time or enter 'done' to stop entering integers");
+        getSecondInput();
+      }
+    }catch (Exception e){
+      getSecondInput();
     } 
   }
   
@@ -34,35 +63,46 @@ public class Main {
     this.T1.inOrder(this.T1.head);
   }
   
-  public void swapTrees(){
-    System.out.println("================================Swap Trees========================================");
-    Tree T2 = new Tree();
-    this.T1.swap(this.T1.head, T2);
-    T2.inOrder(T2.head);
+  public void countLeaves(){
+    System.out.println("Total Leaf Count: " + this.T1.leafCount);
   }
   
-  public void runTasks(){
+  public void swapTrees(){
+    System.out.println("================================T2 POST ORDER========================================");
+    this.T1.swap(this.T1, this.T2);
+    T2.postOrder(T2.head);
+  }
+  
+  public void compareT1T2(){
+    System.out.println("=================================TESTING IF T1 IS IDENTICAL TO T2=====================");
+    System.out.println(this.T1.compare(this.T1, this.T2));
+    getSecondInput();
+  }
+  
+  public void compareT1T3(){
+    System.out.println("=================================TESTING IF T1 IS IDENTICAL TO T3=====================");
+    System.out.println(this.T1.compare(this.T1,this.T3));
+  }
+  
+  public void runFirstTasks(){
     printInOrder();
+    countLeaves();
     swapTrees();
+    compareT1T2(); 
+  }
+  
+  public void delete(){
+    System.out.println("=================================DELETING 15 FROM T3=====================");
+    this.T3.get(15);
+  }
+  
+  public void runSecondTasks(){
+    compareT1T3();
+    delete();
   }
 
  public static void main(String[] args) {
    new Main();
- /* Tree binary = new Tree();
-  binary.add(9);
-  binary.add(60);
-  binary.add(0);
-  binary.add(60);
-  binary.add(0);
-  binary.add(0);
-  binary.add(83);
-  binary.add(85);
-  
-  System.out.println("In Order___________________________________________");
-  binary.inOrder(binary.head);
-  System.out.println("Pre Order__________________________________________");
-  binary.preOrder(binary.head);
-  */
  }
 
 }
